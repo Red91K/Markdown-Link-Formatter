@@ -20,7 +20,7 @@ def return_formatted_url(url: str):
          print(f'[{i}] - {titlear[i]}')
 
       correct_title_pos = int(input("Please select one by typing in the number next to the title:\n"))
-      formatted = f'[{titlear[correct_title_pos].get_text()}]({url})'
+      formatted = f'[{titlear[correct_title_pos]}]({url})'
 
    elif len(titlear) < 1:
       print()
