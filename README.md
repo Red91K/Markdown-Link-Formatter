@@ -7,9 +7,19 @@ I made it because it was annoying to put multiple links into markdown format, es
 - The script automatically copies the output to the clipboard.
 
 # Getting Started
+
+## Clone the repository and navigate to the root of the directory
 ```
 git clone https://github.com/Red91K/Markdown-Link-Formatter.git
 cd Markdown-Link-Formatter
+```
+
+## Install dependencies
+```
 pip3 install -r requirements.txt
+```
+
+## Run Markdown-Link-Formatter
+```
 python3 markdown_link_formatter.py
 ```
