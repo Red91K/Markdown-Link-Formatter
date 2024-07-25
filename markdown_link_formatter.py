@@ -1,6 +1,7 @@
 import requests
 import re
 import subprocess
+import platform
 
 def return_formatted_url(url: str):
    print(f"\nFORMATTING URL [{url}]")
@@ -69,13 +70,23 @@ if __name__ == '__main__':
          formatted = return_formatted_url(url)
          formatted_str += formatted + "\n"
 
-      subprocess.run("pbcopy", text=True, input=formatted_str)
-      print("Copied to Clipboard!")
+      if platform.system() == "Darwin":  # MacOS
+         subprocess.run("pbcopy", universal_newlines=True, input=data)
+      elif platform.system() == "Linux":
+         subprocess.run("xclip -selection clipboard", universal_newlines=True, input=data, shell=True)
+      elif platform.system() == "Windows":
+         subprocess.run("clip", universal_newlines=True, input=data, shell=True)
+      print("OUTPUT COPIED TO CLIPBOARD!\n")
 
    
    else:
       formatted = return_formatted_url(url)
       print()
 
-      subprocess.run("pbcopy", text=True, input=formatted)
-      print("Copied to Clipboard!")
+      if platform.system() == "Darwin":  # MacOS
+         subprocess.run("pbcopy", universal_newlines=True, input=data)
+      elif platform.system() == "Linux":
+         subprocess.run("xclip -selection clipboard", universal_newlines=True, input=data, shell=True)
+      elif platform.system() == "Windows":
+         subprocess.run("clip", universal_newlines=True, input=data, shell=True)
+      print("OUTPUT COPIED TO CLIPBOARD!\n")
